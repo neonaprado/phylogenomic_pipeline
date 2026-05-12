@@ -7,14 +7,16 @@ from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio import Phylo
 
-#list: unaligned fasta files
-
-
+#folder: unaligned fasta files
+indir = "unaligned_fastas"
 #folder: aligned files
-
-
-#loop through fasta files
-
+outdir = "aligned_fastas"
+#folder: aligned files
+if not os.path.exists(outdir):
+    os.mkdir(outdir)
+ 
+file_list = glob.glob(indir + "/*.fa")
+print(file_list)
 
 #new file path for each aligned file
 
@@ -22,9 +24,6 @@ from Bio import Phylo
 #run mafft on each file
 
  
-#list: aligned fasta files
-
-
 #loop through aligned files
 
 
