@@ -38,13 +38,16 @@ for i in (aln_list)
 
 
 #list: tree files
+tree_list = glob.glob(outdir + "/*.treeFile")
+print(tree_list)
 
+topo_list = []
 
 #loop through tree files
-
-
-#read tree into python
-
+for i in tree_list:
+    
+    #read tree into python
+    temp_tree = Phylo.read(tree, "newick")
 
 #find outgroup tip
 
