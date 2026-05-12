@@ -28,9 +28,13 @@ for i in file_list:
     # os.system(aln_cmd)
  
 #loop through aligned files
+aln_list = glob.glob(outdir + "/*.fa")
+print(aln_list)
 
-
-#run iqtree on each alignment
+for i in (aln_list)
+    #run iqtree on each alignment
+    tree_command = f"iqtree -s {aln} -m TEST -nt 2"
+    print(tree_command)
 
 
 #list: tree files
