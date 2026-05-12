@@ -18,11 +18,14 @@ if not os.path.exists(outdir):
 file_list = glob.glob(indir + "/*.fa")
 print(file_list)
 
+for i in file_list:
 #new file path for each aligned file
-
+    new_file_path = file.replace(indir, outdir)
 
 #run mafft on each file
-
+    aln_cmd = "mafft --auto --quiet " + file + " > " + new_file_path
+    print(aln_cmd)
+    # os.system(aln_cmd)
  
 #loop through aligned files
 
