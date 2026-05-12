@@ -49,10 +49,14 @@ for i in tree_list:
     #read tree into python
     temp_tree = Phylo.read(tree, "newick")
 
-#find outgroup tip
+    #find outgroup tip
+    for i in temp_tree.get_terminals():
+        if "Es_" in i.name:
+            es_tip = i
+            break
 
-
-#root tree with outgroup
+    #root tree with outgroup
+    temp_tree.root_with_outgroup(es_tip)
 
 
 #find Bs Cr At tips
