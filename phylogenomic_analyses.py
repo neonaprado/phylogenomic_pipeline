@@ -19,10 +19,10 @@ file_list = glob.glob(indir + "/*.fa")
 print(file_list)
 
 for i in file_list:
-#new file path for each aligned file
+    #new file path for each aligned file
     new_file_path = i.replace(indir, outdir)
 
-#run mafft on each file
+    #run mafft on each file
     aln_cmd = "mafft --auto --quiet " + i + " > " + new_file_path
     print(aln_cmd)
     # os.system(aln_cmd)
@@ -31,7 +31,7 @@ for i in file_list:
 aln_list = glob.glob(outdir + "/*.fa")
 print(aln_list)
 
-for i in (aln_list)
+for i in aln_list:
     #run iqtree on each alignment
     tree_command = f"iqtree -s {i} -m TEST -nt 2"
     print(tree_command)
@@ -59,7 +59,7 @@ for i in tree_list:
     temp_tree.root_with_outgroup(es_tip)
 
 
-      #find Bs Cr At tips
+    #find Bs Cr At tips
     all_terminal_branches = temp_tree.get_terminals()
 
     for t in all_terminal_branches:
