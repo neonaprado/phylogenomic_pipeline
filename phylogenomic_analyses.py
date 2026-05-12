@@ -20,10 +20,10 @@ print(file_list)
 
 for i in file_list:
 #new file path for each aligned file
-    new_file_path = file.replace(indir, outdir)
+    new_file_path = i.replace(indir, outdir)
 
 #run mafft on each file
-    aln_cmd = "mafft --auto --quiet " + file + " > " + new_file_path
+    aln_cmd = "mafft --auto --quiet " + i + " > " + new_file_path
     print(aln_cmd)
     # os.system(aln_cmd)
  
@@ -33,12 +33,12 @@ print(aln_list)
 
 for i in (aln_list)
     #run iqtree on each alignment
-    tree_command = f"iqtree -s {aln} -m TEST -nt 2"
+    tree_command = f"iqtree -s {i} -m TEST -nt 2"
     print(tree_command)
 
 
 #list: tree files
-tree_list = glob.glob(outdir + "/*.treeFile")
+tree_list = glob.glob(outdir + "/*.treefile")
 print(tree_list)
 
 topo_list = []
@@ -47,7 +47,7 @@ topo_list = []
 for i in tree_list:
     
     #read tree into python
-    temp_tree = Phylo.read(tree, "newick")
+    temp_tree = Phylo.read(i, "newick")
 
     #find outgroup tip
     for i in temp_tree.get_terminals():
