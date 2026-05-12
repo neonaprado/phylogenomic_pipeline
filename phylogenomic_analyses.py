@@ -59,13 +59,36 @@ for i in tree_list:
     temp_tree.root_with_outgroup(es_tip)
 
 
-#find Bs Cr At tips
+      #find Bs Cr At tips
+    all_terminal_branches = temp_tree.get_terminals()
 
+    for t in all_terminal_branches:
+        if "Bs_" in t.name:
+            Bs_temp = t
+        elif "Cr_" in t.name:
+            Cr_temp = t
+        elif "At_" in t.name:
+            At_temp = t
+        else:
+            out_temp = t
 
-#test which pair is monophyletic
+    #test which pair is monophyletic
+    P1_and_P2 = [Bs_temp, Cr_temp]
+    P1_and_P3 = [Bs_temp, At_temp]
+    P2_and_P3 = [Cr_temp, At_temp]
 
+    #store topology: each tree
+    if bool(temp_tree.is_monophyletic(P1_and_P2)):
+        topo_str = "12top"
+    elif bool(temp_tree.is_monophyletic(P1_and_P3)):
+        topo_str = "13top"
+    elif bool(temp_tree.is_monophyletic(P2_and_P3)):
+        topo_str = "23top"
+    else:
+        topo_str = "Unknown"
 
-#store topology: each tree
+    print(topo_str)
+    topo_list.append(topo_str)
 
 
 #count: each topology
