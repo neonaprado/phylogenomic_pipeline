@@ -90,9 +90,17 @@ for i in tree_list:
     print(topo_str)
     topo_list.append(topo_str)
 
-
 #count: each topology
+count_12 = topo_list.count("12top")
+count_13 = topo_list.count("13top")
+count_23 = topo_list.count("23top")
+count_unknown = topo_list.count("Unknown")
 
+print("12top:", count_12)
+print("13top:", count_13)
+print("23top:", count_23)
+print("Unknown:", count_unknown)
 
 #figure for topology counts
+print("topology counts done")
 
